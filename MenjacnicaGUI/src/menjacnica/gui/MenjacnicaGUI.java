@@ -1,5 +1,7 @@
 package menjacnica.gui;
 
+
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -86,7 +88,7 @@ public class MenjacnicaGUI extends JFrame {
 	private JButton btnObnrisiKurs;
 	private JButton btnNewButton_1;
 	private JScrollPane scrollPane_1;
-	private JTextArea statusProstor;
+	protected JTextArea statusProstor;
 
 	/**
 	 * Launch the application.
@@ -246,9 +248,23 @@ public class MenjacnicaGUI extends JFrame {
 		}
 		return panelZaStatus;
 	}
+	
+	private void prikaziDodajKursProzor () {
+		DodajKursGUI prozor = new DodajKursGUI(this);
+		prozor.setLocationRelativeTo(contentPane);
+		prozor.setVisible(true);
+	}
+	
 	private JButton getBtnNewButton() {
 		if (btnNewButton == null) {
 			btnNewButton = new JButton("Dodaj kurs");
+			btnNewButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+					prikaziDodajKursProzor();
+					
+				}
+			});
 			btnNewButton.setPreferredSize(new Dimension(130, 25));
 			btnNewButton.setMaximumSize(new Dimension(120, 25));
 		}
@@ -350,7 +366,7 @@ public class MenjacnicaGUI extends JFrame {
 		}
 		return scrollPane_1;
 	}
-	private JTextArea getStatusProstor() {
+	protected JTextArea getStatusProstor() {
 		if (statusProstor == null) {
 			statusProstor = new JTextArea();
 		}
