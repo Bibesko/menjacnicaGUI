@@ -34,12 +34,12 @@ public class ObrisisKursGUI extends JFrame {
 	private JButton obrisi;
 	private JButton btnNewButton_1;
 
-	private MenjacnicaGUI menjacnica;
+	private MenjacnicaGUI menjacnica1;
 
 	/**
 	 * Create the frame.
 	 */
-	public ObrisisKursGUI() {
+	public ObrisisKursGUI(MenjacnicaGUI menjacnica1) {
 		setResizable(false);
 		setTitle("Obrsi kurs");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -50,7 +50,7 @@ public class ObrisisKursGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.add(getPanel(), BorderLayout.CENTER);
 		
-		this.menjacnica = menjacnica;
+		this.menjacnica1 = menjacnica1;
 	}
 
 	private JPanel getPanel() {
@@ -193,7 +193,7 @@ public class ObrisisKursGUI extends JFrame {
 			obrisi = new JButton("Obrisi");
 			obrisi.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					menjacnica.statusProstor.setText(menjacnica.statusProstor.getText()+"\n"+"Obrisi knjigu -- >> Sifra: "+
+					menjacnica1.statusProstor.setText(menjacnica1.statusProstor.getText()+"\n"+"Obrisi knjigu -- >> Sifra: "+
 				sifra.getText()+"Naziv: "+naziv.getText()+"Prodajni kurs: "+prodajniKurs.getText()+
 				"Kupovni kurs: "+kupovniKurs.getText()+"Srednji kurs: "+srednjiKurs.getText()
 				+"Skraceni naziv: "+skraceniKurs.getText());
