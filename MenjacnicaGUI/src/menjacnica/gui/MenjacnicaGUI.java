@@ -161,6 +161,7 @@ public class MenjacnicaGUI extends JFrame {
 					{
 					File file = fc.getSelectedFile();
 					statusProstor.setText(statusProstor.getText()+"\n"+"Ucitaj fajl: "+file.getAbsolutePath());
+					
 					}
 				}
 			});
@@ -330,12 +331,22 @@ public class MenjacnicaGUI extends JFrame {
 	private JMenuItem getMntmDodajKurs() {
 		if (mntmDodajKurs == null) {
 			mntmDodajKurs = new JMenuItem("Dodaj kurs");
+			mntmDodajKurs.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					prikaziDodajKursProzor();
+				}
+			});
 		}
 		return mntmDodajKurs;
 	}
 	private JMenuItem getMntmNewMenuItem() {
 		if (mntmNewMenuItem == null) {
 			mntmNewMenuItem = new JMenuItem("Obrisi kurs");
+			mntmNewMenuItem.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					prikaziObrisiKursGUI();
+				}
+			});
 		}
 		return mntmNewMenuItem;
 	}
@@ -345,9 +356,23 @@ public class MenjacnicaGUI extends JFrame {
 		}
 		return mntmIzvrsiIzmenu;
 	}
+	
+	protected void prikaziObrisiKursGUI() {
+		ObrisisKursGUI prozor = new ObrisisKursGUI();
+		prozor.setLocationRelativeTo(contentPane);
+		prozor.setVisible(true);
+	}
+	
 	private JButton getBtnObnrisiKurs() {
 		if (btnObnrisiKurs == null) {
 			btnObnrisiKurs = new JButton("Obnrisi kurs");
+			btnObnrisiKurs.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+					prikaziObrisiKursGUI();
+					
+				}
+			});
 			btnObnrisiKurs.setPreferredSize(new Dimension(130, 25));
 		}
 		return btnObnrisiKurs;
